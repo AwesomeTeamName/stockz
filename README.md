@@ -5,22 +5,22 @@ Stock market simulator
 1. Create a virtual environment using `virtualenv`.
 
 
-    virtualenv venv
+	virtualenv venv
 
 
 2. Activate the virtual environment.
 
 
-    source venv/bin/activate
+	source venv/bin/activate
 
 
 3. Install requirements using `pip`.
 
 
-    pip install -r requirements.txt
+	pip install -r requirements.txt
 
 
 4. Start the application.
 
 
-    python app.py
+	python app.py
