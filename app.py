@@ -1,4 +1,4 @@
-import yaml, os.path, router
+import yaml, os, router
 from flask import Flask
 
 # Configuration #
@@ -23,6 +23,11 @@ if not isinstance(config['route_path'], str):
 # Application #
 
 app = Flask(__name__)
+
+app.jinja_env.trim_blocks = True
+app.jinja_env.lstrip_blocks = True
+
+app.secret_key = os.urandom(16)
 
 for route in config['routes']:
 	if os.path.isfile('./{0}/{1}'.format(config['route_path'], route)):
