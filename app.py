@@ -8,9 +8,6 @@ try:
 except:
 	raise Exception('Invalid config.yml')
 
-if isinstance(config, type(None)):
-	raise Exception('Invalid config.yml')
-
 # Application #
 
 app = Flask(__name__)
