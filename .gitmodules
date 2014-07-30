@@ -1,3 +1,0 @@
-[submodule "stockz-server"]
-	path = stockz_server
-	url = git@github.com:AwesomeTeamName/stockz-server.git
