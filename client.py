@@ -2,17 +2,14 @@ import socket
 
 class StockzClient():
 	
-	def __init__(self, address = ('127.0.0.1', 1337)):
-		if not isinstance(address, tuple):
-			raise TypeError('address must be a tuple')
+	def __init__(self, host = '127.0.0.1', port = 1337):
+		if not isinstance(host, basestring):
+			raise TypeError('host must be a string')
 
-		if not len(address) == 2:
-			raise TypeError('address must be a tuple (str, int)')
+		if not isinstance(port, int):
+			raise TypeError('port must be an int')
 
-		if not isinstance(address[0], basestring) or not isinstance(address[1], int):
-			raise TypeError('address must be a tuple (str, int)')
-
-		self._address = address
+		self._address = (host, port)
 			
 	def execute(self, data, timeout = 5):
 		if not isinstance(data, basestring):
