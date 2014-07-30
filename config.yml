@@ -6,4 +6,3 @@ route_path: routes
 
 routes:
  - hello
- - twilio
