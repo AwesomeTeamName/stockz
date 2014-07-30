@@ -7,7 +7,7 @@ twiml = """<?xml version="1.0" encoding="UTF-8" ?>
     <Message>{0}</Message>
 </Response>"""
 
-@blueprint.route('/twilio')
+@blueprint.route('/twilio', methods = ['POST'])
 def twilio():
 	message = request.form['Body']
 	response = twiml.format(message)
