@@ -1,4 +1,4 @@
-import yaml, os, router
+import yaml, os
 from flask import Flask
 
 # Configuration #
@@ -11,14 +11,8 @@ try:
 except:
 	raise Exception('Invalid config.yml')
 
-if not isinstance(config['flask'], dict):
+if 'flask' not in config or not isinstance(config['flask'], dict):
 	raise Exception('Missing flask from config')
-
-if not isinstance(config['routes'], list):
-	raise Exception('Missing routes from config')
-
-if not isinstance(config['route_path'], str):
-	raise Exception('Missing route_path from config')
 
 # Application #
 
@@ -29,13 +23,11 @@ app.jinja_env.lstrip_blocks = True
 
 app.secret_key = os.urandom(16)
 
-for route in config['routes']:
-	if os.path.isfile('./{0}/{1}'.format(config['route_path'], route)):
-		raise Exception('route \"' + route + '\" not found')
+# Routes #
 
-	router.load(route, config['route_path'])
-
-router.register_blueprints(app)
+@app.route('/')
+def index():
+	return 'Hello!'
 
 # Server #
 

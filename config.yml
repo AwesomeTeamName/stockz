@@ -1,8 +1,3 @@
 flask:
     host: 0.0.0.0
     debug: True
-
-route_path: routes
-
-routes:
- - hello
