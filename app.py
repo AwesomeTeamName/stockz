@@ -1,19 +1,6 @@
 import yaml, os
 from flask import Flask
 
-# Configuration #
-
-try:
-	config = yaml.load(open('config.yml', 'r'))
-
-	if not isinstance(config, dict):
-		raise Exception()
-except:
-	raise Exception('Invalid config.yml')
-
-if 'flask' not in config or not isinstance(config['flask'], dict):
-	raise Exception('Missing flask from config')
-
 # Application #
 
 app = Flask(__name__)
@@ -32,4 +19,4 @@ def index():
 # Server #
 
 if __name__ == '__main__':
-	app.run(**config['flask'])
+	app.run(host = '0.0.0.0', debug = True)
